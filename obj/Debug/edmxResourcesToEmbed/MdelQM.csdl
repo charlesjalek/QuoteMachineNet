@@ -1,0 +1,938 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quotemachineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="lut_grade_crossreference">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" />
+    <Property Name="c_species" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_millgrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_blgrade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_alt_grade_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_grade_class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_grade_book" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_grade_book_paragraph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_grade_definition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="migration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="migration1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="batch" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StateName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Abreviation" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tbl_bl_grades">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_bl_grade_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_bl_grade_describe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_bl_grades" FromRole="tbl_bl_grades" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="tbl_customer">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_customer_email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_addresss" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_city" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_parent_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsShipRecord" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="c_customer_zipcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_quotes_info" Relationship="Self.FK_tbl_quotes_info_tbl_customer" FromRole="tbl_customer" ToRole="tbl_quotes_info" />
+    <NavigationProperty Name="tbl_transit_data" Relationship="Self.FK_tbl_transit_data_tbl_customer" FromRole="tbl_customer" ToRole="tbl_transit_data" />
+  </EntityType>
+  <EntityType Name="tbl_delivery_methods">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_delivery_method" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_transit_data" Relationship="Self.FK_tbl_transit_data_tbl_delivery_methods" FromRole="tbl_delivery_methods" ToRole="tbl_transit_data" />
+  </EntityType>
+  <EntityType Name="tbl_delivery_types">
+    <Key>
+      <PropertyRef Name="c_delivery_type_id" />
+    </Key>
+    <Property Name="c_delivery_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="delivery_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_transit_data" Relationship="Self.FK_tbl_transit_data_tbl_delivery_types" FromRole="tbl_delivery_types" ToRole="tbl_transit_data" />
+  </EntityType>
+  <EntityType Name="tbl_density">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_species_c_id" Type="Int32" />
+    <Property Name="c_seasoning_c_id" Type="Int32" />
+    <Property Name="c_species_c_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_seasoning_c_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_density" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+    <NavigationProperty Name="tbl_seasoning" Relationship="Self.FK_tbl_density_tbl_seasoning" FromRole="tbl_density" ToRole="tbl_seasoning" />
+    <NavigationProperty Name="tbl_species" Relationship="Self.FK_tbl_density_tbl_species" FromRole="tbl_density" ToRole="tbl_species" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_density" FromRole="tbl_density" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="tbl_finish">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_finish" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_finishers">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_finisher_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_state" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_zip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_contact_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_contact_email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_contact_phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_finishers" FromRole="tbl_finishers" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="tbl_how_found">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_how_found_describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_project" Relationship="Self.FK_tbl_project_tbl_how_found" FromRole="tbl_how_found" ToRole="tbl_project" />
+  </EntityType>
+  <EntityType Name="tbl_hubspot_comm_log">
+    <Key>
+      <PropertyRef Name="commlog_id" />
+    </Key>
+    <Property Name="commlog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_id" Type="Int32" />
+    <Property Name="last_contact" Type="DateTime" Precision="0" />
+    <Property Name="last_contact_notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="next_contact" Type="DateTime" Precision="0" />
+    <Property Name="next_contact_notes" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="salesperson_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_items">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_item_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_concat_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_product_id" Type="Int32" />
+    <Property Name="c_item_product_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_species_code" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_bl_grade_id" Type="Int32" />
+    <Property Name="c_item_bl_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_mill_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_pattern_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_pattern_profile" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_seasoning_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_use_id" Type="Int32" />
+    <Property Name="c_item_use_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_surface_id" Type="Int32" />
+    <Property Name="c_item_surface_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_nominal_width" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_nominal_thickness" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_actual_width" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_actual_thickness" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_exposed_face" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_finish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_mill_id" Type="Int32" />
+    <Property Name="c_item_mill_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_finisher_id" Type="Int32" />
+    <Property Name="c_item_finisher_code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_variance" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_density_id" Type="Int32" />
+    <Property Name="c_item_density" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="c_item_datetime_created" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="c_item_datetime_update" Type="DateTime" Precision="0" />
+    <Property Name="c_item_custom" Type="Int16" />
+    <NavigationProperty Name="tbl_bl_grades" Relationship="Self.FK_tbl_items_tbl_bl_grades" FromRole="tbl_items" ToRole="tbl_bl_grades" />
+    <NavigationProperty Name="tbl_density" Relationship="Self.FK_tbl_items_tbl_density" FromRole="tbl_items" ToRole="tbl_density" />
+    <NavigationProperty Name="tbl_finishers" Relationship="Self.FK_tbl_items_tbl_finishers" FromRole="tbl_items" ToRole="tbl_finishers" />
+    <NavigationProperty Name="tbl_mills" Relationship="Self.FK_tbl_items_tbl_mills" FromRole="tbl_items" ToRole="tbl_mills" />
+    <NavigationProperty Name="tbl_products" Relationship="Self.FK_tbl_items_tbl_products" FromRole="tbl_items" ToRole="tbl_products" />
+    <NavigationProperty Name="tbl_surface" Relationship="Self.FK_tbl_items_tbl_surface" FromRole="tbl_items" ToRole="tbl_surface" />
+    <NavigationProperty Name="tbl_uses" Relationship="Self.FK_tbl_items_tbl_uses" FromRole="tbl_items" ToRole="tbl_uses" />
+    <NavigationProperty Name="tbl_project_items" Relationship="Self.FK_tbl_project_items_tbl_items" FromRole="tbl_items" ToRole="tbl_project_items" />
+  </EntityType>
+  <EntityType Name="tbl_items_old">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_item_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_concat_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_product_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_species_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_bl_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_mill_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_pattern_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_pattern_profile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_seasoning_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_use_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_surface" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_nominal_width" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_nominal_thickness" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_actual_width" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_actual_thickness" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_exposed_face" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_finish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_mill_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_finisher_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_variance" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_item_density" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="c_item_datetime_created" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="c_item_datetime_update" Type="DateTime" Precision="0" />
+    <Property Name="c_item_custom" Type="Int16" />
+  </EntityType>
+  <EntityType Name="tbl_lead_status">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_status_description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_project" Relationship="Self.FK_tbl_project_tbl_lead_status" FromRole="tbl_lead_status" ToRole="tbl_project" />
+  </EntityType>
+  <EntityType Name="tbl_mill_grades">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_mill_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_bl_grade" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_mills">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_mill_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_qb_mill_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_mill_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_mill_address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_mill_city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_mill_state" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_mill_zipcode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_contact_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_contact_phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_contact_email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_mills" FromRole="tbl_mills" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="tbl_products">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_product_code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_product_describe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_products" FromRole="tbl_products" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="tbl_profit_calculator">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_crating_cost" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_project">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_project_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_salesperson_id" Type="Int32" Nullable="false" />
+    <Property Name="c_customer_email_id_from_hubspot" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_id" Type="Int32" />
+    <Property Name="c__leadstatus_id" Type="Int32" />
+    <Property Name="c_project_delivery_address_1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_project_delivery_address_2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_project_delivery_city" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_project_delivery_state" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_project_delivery_zip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_project_delivery_phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="c_start_date" Type="DateTime" Precision="0" />
+    <Property Name="c_deliver_by_date" Type="DateTime" Precision="0" />
+    <Property Name="c_project_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_salesperson_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_how_found_id" Type="Int32" />
+    <Property Name="c_callback_appt" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_how_found" Relationship="Self.FK_tbl_project_tbl_how_found" FromRole="tbl_project" ToRole="tbl_how_found" />
+    <NavigationProperty Name="tbl_lead_status" Relationship="Self.FK_tbl_project_tbl_lead_status" FromRole="tbl_project" ToRole="tbl_lead_status" />
+    <NavigationProperty Name="tbl_salesperson" Relationship="Self.FK_tbl_project_tbl_salesperson" FromRole="tbl_project" ToRole="tbl_salesperson" />
+    <NavigationProperty Name="tbl_quotes_info" Relationship="Self.FK_tbl_quotes_info_tbl_project" FromRole="tbl_project" ToRole="tbl_quotes_info" />
+    <NavigationProperty Name="tbl_transit_data" Relationship="Self.FK_tbl_transit_data_tbl_project" FromRole="tbl_project" ToRole="tbl_transit_data" />
+    <NavigationProperty Name="tbl_project_items" Relationship="Self.tbl_project_items_fk_test_project_id" FromRole="tbl_project" ToRole="tbl_project_items" />
+  </EntityType>
+  <EntityType Name="tbl_project_items">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_item_id" Type="Int32" Nullable="false" />
+    <Property Name="c_project_id" Type="Int32" Nullable="false" />
+    <Property Name="c_square_footage" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+    <Property Name="c_cost_per_mbft" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="c_linear_footage" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_board_footage" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="c_price_per_board_feet" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="c_price_per_linear_feet" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="c_price_per_square_feet" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="c_items_weight" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="c_item_total_quoted" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_item_mill_setup_fee" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_item_finisher_setup_fee" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_item_mill_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_customer_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_item_tally_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_tally_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="c_pattern_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_project_items_tbl_items" FromRole="tbl_project_items" ToRole="tbl_items" />
+    <NavigationProperty Name="tbl_project" Relationship="Self.tbl_project_items_fk_test_project_id" FromRole="tbl_project_items" ToRole="tbl_project" />
+  </EntityType>
+  <EntityType Name="tbl_project_status">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="project_status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tbl_quotes_info">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_quote_number" Type="Int32" Nullable="false" />
+    <Property Name="c_project_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_customer_id" Type="Int32" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="c_salesperson_id" Type="Int32" Nullable="false" />
+    <Property Name="c_quote_datetime_created" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="c_quote_QB_no" Type="Int32" />
+    <Property Name="c_quote_PO_no" Type="Int32" />
+    <Property Name="c_mill_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_finisher_id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="c_project_id" Type="Int32" Nullable="false" />
+    <Property Name="c_shipto_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_cust_quote_datesent" Type="DateTime" Precision="0" />
+    <Property Name="c_cust_quote_dateapproved" Type="DateTime" Precision="0" />
+    <Property Name="c_sample_request_date" Type="DateTime" Precision="0" />
+    <Property Name="c_sample_recieved_date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="tbl_customer" Relationship="Self.FK_tbl_quotes_info_tbl_customer" FromRole="tbl_quotes_info" ToRole="tbl_customer" />
+    <NavigationProperty Name="tbl_project" Relationship="Self.FK_tbl_quotes_info_tbl_project" FromRole="tbl_quotes_info" ToRole="tbl_project" />
+    <NavigationProperty Name="tbl_salesperson" Relationship="Self.FK_tbl_quotes_info_tbl_salesperson" FromRole="tbl_quotes_info" ToRole="tbl_salesperson" />
+  </EntityType>
+  <EntityType Name="tbl_salesperson">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_salesperson_name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_salesperson_email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="c_salesperson_phone" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="c_salesperson_zip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_project" Relationship="Self.FK_tbl_project_tbl_salesperson" FromRole="tbl_salesperson" ToRole="tbl_project" />
+    <NavigationProperty Name="tbl_quotes_info" Relationship="Self.FK_tbl_quotes_info_tbl_salesperson" FromRole="tbl_salesperson" ToRole="tbl_quotes_info" />
+  </EntityType>
+  <EntityType Name="tbl_seasoning">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_seasoning_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_seasoning_describe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_density" Relationship="Self.FK_tbl_density_tbl_seasoning" FromRole="tbl_seasoning" ToRole="tbl_density" />
+  </EntityType>
+  <EntityType Name="tbl_siding_patterns">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_pattern_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_pattern_img_description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_pattern_image_path" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_species">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_species_code" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_species_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_density" Relationship="Self.FK_tbl_density_tbl_species" FromRole="tbl_species" ToRole="tbl_density" />
+  </EntityType>
+  <EntityType Name="tbl_surface">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_item_surface" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_item_surface_describe" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_surface" FromRole="tbl_surface" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="tbl_tally_boardlength">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_boardlength" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tally_detail">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_tbl_mill_tally_id" Type="Int32" Nullable="false" />
+    <Property Name="c_board_length" Type="Int32" Nullable="false" />
+    <Property Name="c_board_count" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tally_type">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_tally_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_transit_data">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_project_id" Type="Int32" Nullable="false" />
+    <Property Name="c_transit_co" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_transit_type_id" Type="Int32" Nullable="false" />
+    <Property Name="c_transit_source" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_transit_destination" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_reciever_customer_id" Type="Int32" Nullable="false" />
+    <Property Name="c_delivery_method_id" Type="Int32" Nullable="false" />
+    <Property Name="c_delivery_type_id" Type="Int32" Nullable="false" />
+    <Property Name="c_truck_type_id" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_delivered_by" Type="Int32" Nullable="false" />
+    <Property Name="c_bft_vol" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="c_miles" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="c_loadweight" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="c_padweight" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="c_rfq_id" Type="Int32" Nullable="false" />
+    <Property Name="c_internal_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_customer_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_mill_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_customer" Relationship="Self.FK_tbl_transit_data_tbl_customer" FromRole="tbl_transit_data" ToRole="tbl_customer" />
+    <NavigationProperty Name="tbl_delivery_methods" Relationship="Self.FK_tbl_transit_data_tbl_delivery_methods" FromRole="tbl_transit_data" ToRole="tbl_delivery_methods" />
+    <NavigationProperty Name="tbl_delivery_types" Relationship="Self.FK_tbl_transit_data_tbl_delivery_types" FromRole="tbl_transit_data" ToRole="tbl_delivery_types" />
+    <NavigationProperty Name="tbl_project" Relationship="Self.FK_tbl_transit_data_tbl_project" FromRole="tbl_transit_data" ToRole="tbl_project" />
+    <NavigationProperty Name="tbl_transit_rfq" Relationship="Self.FK_tbl_transit_data_tbl_transit_rfq" FromRole="tbl_transit_data" ToRole="tbl_transit_rfq" />
+    <NavigationProperty Name="tbl_transit_types" Relationship="Self.FK_tbl_transit_data_tbl_transit_types" FromRole="tbl_transit_data" ToRole="tbl_transit_types" />
+  </EntityType>
+  <EntityType Name="tbl_transit_drop_reqs">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_project_id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="c_delivery_days" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_delivery_hours" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_unload_method" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_unload_machine" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_datetime_restrictions" Type="Int16" />
+    <Property Name="c_machine_wt_size_limits" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_salesperson_notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_special_arrangements" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="c_semitruck_access_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_transit_rfq">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_project_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_rfq_amount" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="c_crating_co" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_transit_co" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_rfq_date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tbl_transit_data" Relationship="Self.FK_tbl_transit_data_tbl_transit_rfq" FromRole="tbl_transit_rfq" ToRole="tbl_transit_data" />
+  </EntityType>
+  <EntityType Name="tbl_transit_types">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_transit_type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_transit_data" Relationship="Self.FK_tbl_transit_data_tbl_transit_types" FromRole="tbl_transit_types" ToRole="tbl_transit_data" />
+  </EntityType>
+  <EntityType Name="tbl_truck_data">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" />
+    <Property Name="c_truck_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_fbtruck_options" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_fbtruck_deckspace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="c_fbtruck_units" Type="Int32" />
+    <Property Name="c_boxtruck_units" Type="Int32" />
+    <Property Name="c_boxtruck_class" Type="Int32" />
+    <Property Name="c_crate_width" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_crate_height" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_crate_length" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_crate_weight" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="c_box_option1" Type="Int32" />
+    <Property Name="c_box_option2" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_truck_types">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_truck_type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_uses">
+    <Key>
+      <PropertyRef Name="c_id" />
+    </Key>
+    <Property Name="c_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="c_use_code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="c_use_describe" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_items" Relationship="Self.FK_tbl_items_tbl_uses" FromRole="tbl_uses" ToRole="tbl_items" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email_verified_at" Type="DateTime" Precision="3" />
+    <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="remember_token" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="created_at" Type="DateTime" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_tbl_items_tbl_bl_grades">
+    <End Role="tbl_bl_grades" Type="Self.tbl_bl_grades" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_bl_grades">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_item_bl_grade_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_quotes_info_tbl_customer">
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="0..1" />
+    <End Role="tbl_quotes_info" Type="Self.tbl_quotes_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_customer">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_quotes_info">
+        <PropertyRef Name="c_customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transit_data_tbl_customer">
+    <End Role="tbl_customer" Type="Self.tbl_customer" Multiplicity="1" />
+    <End Role="tbl_transit_data" Type="Self.tbl_transit_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_customer">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_transit_data">
+        <PropertyRef Name="c_reciever_customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transit_data_tbl_delivery_methods">
+    <End Role="tbl_delivery_methods" Type="Self.tbl_delivery_methods" Multiplicity="1" />
+    <End Role="tbl_transit_data" Type="Self.tbl_transit_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_delivery_methods">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_transit_data">
+        <PropertyRef Name="c_delivery_method_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transit_data_tbl_delivery_types">
+    <End Role="tbl_delivery_types" Type="Self.tbl_delivery_types" Multiplicity="1" />
+    <End Role="tbl_transit_data" Type="Self.tbl_transit_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_delivery_types">
+        <PropertyRef Name="c_delivery_type_id" />
+      </Principal>
+      <Dependent Role="tbl_transit_data">
+        <PropertyRef Name="c_delivery_method_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_density_tbl_seasoning">
+    <End Role="tbl_seasoning" Type="Self.tbl_seasoning" Multiplicity="0..1" />
+    <End Role="tbl_density" Type="Self.tbl_density" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_seasoning">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_density">
+        <PropertyRef Name="c_seasoning_c_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_density_tbl_species">
+    <End Role="tbl_species" Type="Self.tbl_species" Multiplicity="0..1" />
+    <End Role="tbl_density" Type="Self.tbl_density" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_species">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_density">
+        <PropertyRef Name="c_species_c_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_items_tbl_density">
+    <End Role="tbl_density" Type="Self.tbl_density" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_density">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_item_density_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_items_tbl_finishers">
+    <End Role="tbl_finishers" Type="Self.tbl_finishers" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_finishers">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_item_finisher_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_project_tbl_how_found">
+    <End Role="tbl_how_found" Type="Self.tbl_how_found" Multiplicity="0..1" />
+    <End Role="tbl_project" Type="Self.tbl_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_how_found">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_project">
+        <PropertyRef Name="c_how_found_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_items_tbl_mills">
+    <End Role="tbl_mills" Type="Self.tbl_mills" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_mills">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_item_mill_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_items_tbl_products">
+    <End Role="tbl_products" Type="Self.tbl_products" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_products">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_items_tbl_surface">
+    <End Role="tbl_surface" Type="Self.tbl_surface" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_surface">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_item_surface_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_items_tbl_uses">
+    <End Role="tbl_uses" Type="Self.tbl_uses" Multiplicity="0..1" />
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_uses">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_items">
+        <PropertyRef Name="c_item_use_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_project_items_tbl_items">
+    <End Role="tbl_items" Type="Self.tbl_items" Multiplicity="1" />
+    <End Role="tbl_project_items" Type="Self.tbl_project_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_items">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_project_items">
+        <PropertyRef Name="c_item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_project_tbl_lead_status">
+    <End Role="tbl_lead_status" Type="Self.tbl_lead_status" Multiplicity="0..1" />
+    <End Role="tbl_project" Type="Self.tbl_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_lead_status">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_project">
+        <PropertyRef Name="c__leadstatus_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_project_tbl_salesperson">
+    <End Role="tbl_salesperson" Type="Self.tbl_salesperson" Multiplicity="1" />
+    <End Role="tbl_project" Type="Self.tbl_project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_salesperson">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_project">
+        <PropertyRef Name="c_salesperson_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_quotes_info_tbl_project">
+    <End Role="tbl_project" Type="Self.tbl_project" Multiplicity="0..1" />
+    <End Role="tbl_quotes_info" Type="Self.tbl_quotes_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_project">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_quotes_info">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transit_data_tbl_project">
+    <End Role="tbl_project" Type="Self.tbl_project" Multiplicity="1" />
+    <End Role="tbl_transit_data" Type="Self.tbl_transit_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_project">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_transit_data">
+        <PropertyRef Name="c_project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_project_items_fk_test_project_id">
+    <End Role="tbl_project" Type="Self.tbl_project" Multiplicity="1" />
+    <End Role="tbl_project_items" Type="Self.tbl_project_items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_project">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_project_items">
+        <PropertyRef Name="c_project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_quotes_info_tbl_salesperson">
+    <End Role="tbl_salesperson" Type="Self.tbl_salesperson" Multiplicity="1" />
+    <End Role="tbl_quotes_info" Type="Self.tbl_quotes_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_salesperson">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_quotes_info">
+        <PropertyRef Name="c_salesperson_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transit_data_tbl_transit_rfq">
+    <End Role="tbl_transit_rfq" Type="Self.tbl_transit_rfq" Multiplicity="1" />
+    <End Role="tbl_transit_data" Type="Self.tbl_transit_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transit_rfq">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_transit_data">
+        <PropertyRef Name="c_rfq_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_transit_data_tbl_transit_types">
+    <End Role="tbl_transit_types" Type="Self.tbl_transit_types" Multiplicity="1" />
+    <End Role="tbl_transit_data" Type="Self.tbl_transit_data" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_transit_types">
+        <PropertyRef Name="c_id" />
+      </Principal>
+      <Dependent Role="tbl_transit_data">
+        <PropertyRef Name="c_transit_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quotemachineEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="lut_grade_crossreference" EntityType="Self.lut_grade_crossreference" />
+    <EntitySet Name="migrations" EntityType="Self.migration" />
+    <EntitySet Name="StateNames" EntityType="Self.StateName" />
+    <EntitySet Name="tbl_bl_grades" EntityType="Self.tbl_bl_grades" />
+    <EntitySet Name="tbl_customer" EntityType="Self.tbl_customer" />
+    <EntitySet Name="tbl_delivery_methods" EntityType="Self.tbl_delivery_methods" />
+    <EntitySet Name="tbl_delivery_types" EntityType="Self.tbl_delivery_types" />
+    <EntitySet Name="tbl_density" EntityType="Self.tbl_density" />
+    <EntitySet Name="tbl_finish" EntityType="Self.tbl_finish" />
+    <EntitySet Name="tbl_finishers" EntityType="Self.tbl_finishers" />
+    <EntitySet Name="tbl_how_found" EntityType="Self.tbl_how_found" />
+    <EntitySet Name="tbl_hubspot_comm_log" EntityType="Self.tbl_hubspot_comm_log" />
+    <EntitySet Name="tbl_items" EntityType="Self.tbl_items" />
+    <EntitySet Name="tbl_items_old" EntityType="Self.tbl_items_old" />
+    <EntitySet Name="tbl_lead_status" EntityType="Self.tbl_lead_status" />
+    <EntitySet Name="tbl_mill_grades" EntityType="Self.tbl_mill_grades" />
+    <EntitySet Name="tbl_mills" EntityType="Self.tbl_mills" />
+    <EntitySet Name="tbl_products" EntityType="Self.tbl_products" />
+    <EntitySet Name="tbl_profit_calculator" EntityType="Self.tbl_profit_calculator" />
+    <EntitySet Name="tbl_project" EntityType="Self.tbl_project" />
+    <EntitySet Name="tbl_project_items" EntityType="Self.tbl_project_items" />
+    <EntitySet Name="tbl_project_status" EntityType="Self.tbl_project_status" />
+    <EntitySet Name="tbl_quotes_info" EntityType="Self.tbl_quotes_info" />
+    <EntitySet Name="tbl_salesperson" EntityType="Self.tbl_salesperson" />
+    <EntitySet Name="tbl_seasoning" EntityType="Self.tbl_seasoning" />
+    <EntitySet Name="tbl_siding_patterns" EntityType="Self.tbl_siding_patterns" />
+    <EntitySet Name="tbl_species" EntityType="Self.tbl_species" />
+    <EntitySet Name="tbl_surface" EntityType="Self.tbl_surface" />
+    <EntitySet Name="tbl_tally_boardlength" EntityType="Self.tbl_tally_boardlength" />
+    <EntitySet Name="tbl_tally_detail" EntityType="Self.tbl_tally_detail" />
+    <EntitySet Name="tbl_tally_type" EntityType="Self.tbl_tally_type" />
+    <EntitySet Name="tbl_transit_data" EntityType="Self.tbl_transit_data" />
+    <EntitySet Name="tbl_transit_drop_reqs" EntityType="Self.tbl_transit_drop_reqs" />
+    <EntitySet Name="tbl_transit_rfq" EntityType="Self.tbl_transit_rfq" />
+    <EntitySet Name="tbl_transit_types" EntityType="Self.tbl_transit_types" />
+    <EntitySet Name="tbl_truck_data" EntityType="Self.tbl_truck_data" />
+    <EntitySet Name="tbl_truck_types" EntityType="Self.tbl_truck_types" />
+    <EntitySet Name="tbl_uses" EntityType="Self.tbl_uses" />
+    <EntitySet Name="users" EntityType="Self.user" />
+    <AssociationSet Name="FK_tbl_items_tbl_bl_grades" Association="Self.FK_tbl_items_tbl_bl_grades">
+      <End Role="tbl_bl_grades" EntitySet="tbl_bl_grades" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_quotes_info_tbl_customer" Association="Self.FK_tbl_quotes_info_tbl_customer">
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+      <End Role="tbl_quotes_info" EntitySet="tbl_quotes_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transit_data_tbl_customer" Association="Self.FK_tbl_transit_data_tbl_customer">
+      <End Role="tbl_customer" EntitySet="tbl_customer" />
+      <End Role="tbl_transit_data" EntitySet="tbl_transit_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transit_data_tbl_delivery_methods" Association="Self.FK_tbl_transit_data_tbl_delivery_methods">
+      <End Role="tbl_delivery_methods" EntitySet="tbl_delivery_methods" />
+      <End Role="tbl_transit_data" EntitySet="tbl_transit_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transit_data_tbl_delivery_types" Association="Self.FK_tbl_transit_data_tbl_delivery_types">
+      <End Role="tbl_delivery_types" EntitySet="tbl_delivery_types" />
+      <End Role="tbl_transit_data" EntitySet="tbl_transit_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_density_tbl_seasoning" Association="Self.FK_tbl_density_tbl_seasoning">
+      <End Role="tbl_seasoning" EntitySet="tbl_seasoning" />
+      <End Role="tbl_density" EntitySet="tbl_density" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_density_tbl_species" Association="Self.FK_tbl_density_tbl_species">
+      <End Role="tbl_species" EntitySet="tbl_species" />
+      <End Role="tbl_density" EntitySet="tbl_density" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_items_tbl_density" Association="Self.FK_tbl_items_tbl_density">
+      <End Role="tbl_density" EntitySet="tbl_density" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_items_tbl_finishers" Association="Self.FK_tbl_items_tbl_finishers">
+      <End Role="tbl_finishers" EntitySet="tbl_finishers" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_project_tbl_how_found" Association="Self.FK_tbl_project_tbl_how_found">
+      <End Role="tbl_how_found" EntitySet="tbl_how_found" />
+      <End Role="tbl_project" EntitySet="tbl_project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_items_tbl_mills" Association="Self.FK_tbl_items_tbl_mills">
+      <End Role="tbl_mills" EntitySet="tbl_mills" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_items_tbl_products" Association="Self.FK_tbl_items_tbl_products">
+      <End Role="tbl_products" EntitySet="tbl_products" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_items_tbl_surface" Association="Self.FK_tbl_items_tbl_surface">
+      <End Role="tbl_surface" EntitySet="tbl_surface" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_items_tbl_uses" Association="Self.FK_tbl_items_tbl_uses">
+      <End Role="tbl_uses" EntitySet="tbl_uses" />
+      <End Role="tbl_items" EntitySet="tbl_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_project_items_tbl_items" Association="Self.FK_tbl_project_items_tbl_items">
+      <End Role="tbl_items" EntitySet="tbl_items" />
+      <End Role="tbl_project_items" EntitySet="tbl_project_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_project_tbl_lead_status" Association="Self.FK_tbl_project_tbl_lead_status">
+      <End Role="tbl_lead_status" EntitySet="tbl_lead_status" />
+      <End Role="tbl_project" EntitySet="tbl_project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_project_tbl_salesperson" Association="Self.FK_tbl_project_tbl_salesperson">
+      <End Role="tbl_salesperson" EntitySet="tbl_salesperson" />
+      <End Role="tbl_project" EntitySet="tbl_project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_quotes_info_tbl_project" Association="Self.FK_tbl_quotes_info_tbl_project">
+      <End Role="tbl_project" EntitySet="tbl_project" />
+      <End Role="tbl_quotes_info" EntitySet="tbl_quotes_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transit_data_tbl_project" Association="Self.FK_tbl_transit_data_tbl_project">
+      <End Role="tbl_project" EntitySet="tbl_project" />
+      <End Role="tbl_transit_data" EntitySet="tbl_transit_data" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_project_items_fk_test_project_id" Association="Self.tbl_project_items_fk_test_project_id">
+      <End Role="tbl_project" EntitySet="tbl_project" />
+      <End Role="tbl_project_items" EntitySet="tbl_project_items" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_quotes_info_tbl_salesperson" Association="Self.FK_tbl_quotes_info_tbl_salesperson">
+      <End Role="tbl_salesperson" EntitySet="tbl_salesperson" />
+      <End Role="tbl_quotes_info" EntitySet="tbl_quotes_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transit_data_tbl_transit_rfq" Association="Self.FK_tbl_transit_data_tbl_transit_rfq">
+      <End Role="tbl_transit_rfq" EntitySet="tbl_transit_rfq" />
+      <End Role="tbl_transit_data" EntitySet="tbl_transit_data" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_transit_data_tbl_transit_types" Association="Self.FK_tbl_transit_data_tbl_transit_types">
+      <End Role="tbl_transit_types" EntitySet="tbl_transit_types" />
+      <End Role="tbl_transit_data" EntitySet="tbl_transit_data" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

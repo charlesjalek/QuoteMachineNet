@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "UqQWoBsTQWGffmDJARNnP/o9cN8aCdvFsxmokzSEHpcLzjLrC90UmjAgQ/h5nCQQTk7IBpgyyPlNpW/CBJ5Yww==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Charles\\source\\repos\\BL.QuoteMachine\\BL.QuoteMachine.vbproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Charles\\.nuget\\packages\\entityframework\\5.0.0\\entityframework.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

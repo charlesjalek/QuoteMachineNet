@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="quotemachineModelStoreContainer" CdmEntityContainer="quotemachineEntities">
+    <EntitySetMapping Name="lut_grade_crossreference">
+      <EntityTypeMapping TypeName="quotemachineModel.lut_grade_crossreference">
+        <MappingFragment StoreEntitySet="lut_grade_crossreference">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_species" ColumnName="c_species" />
+          <ScalarProperty Name="c_millgrade" ColumnName="c_millgrade" />
+          <ScalarProperty Name="c_blgrade" ColumnName="c_blgrade" />
+          <ScalarProperty Name="c_alt_grade_name" ColumnName="c_alt_grade_name" />
+          <ScalarProperty Name="c_grade_class" ColumnName="c_grade_class" />
+          <ScalarProperty Name="c_grade_book" ColumnName="c_grade_book" />
+          <ScalarProperty Name="c_grade_book_paragraph" ColumnName="c_grade_book_paragraph" />
+          <ScalarProperty Name="c_grade_definition" ColumnName="c_grade_definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="migrations">
+      <EntityTypeMapping TypeName="quotemachineModel.migration">
+        <MappingFragment StoreEntitySet="migrations">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="migration1" ColumnName="migration" />
+          <ScalarProperty Name="batch" ColumnName="batch" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateNames">
+      <EntityTypeMapping TypeName="quotemachineModel.StateName">
+        <MappingFragment StoreEntitySet="StateName">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Abreviation" ColumnName="Abreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_bl_grades">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_bl_grades">
+        <MappingFragment StoreEntitySet="tbl_bl_grades">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_bl_grade_code" ColumnName="c_bl_grade_code" />
+          <ScalarProperty Name="c_bl_grade_describe" ColumnName="c_bl_grade_describe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_customer">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_customer">
+        <MappingFragment StoreEntitySet="tbl_customer">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_customer_email" ColumnName="c_customer_email" />
+          <ScalarProperty Name="c_customer_name" ColumnName="c_customer_name" />
+          <ScalarProperty Name="c_customer_phone" ColumnName="c_customer_phone" />
+          <ScalarProperty Name="c_customer_addresss" ColumnName="c_customer_addresss" />
+          <ScalarProperty Name="c_customer_city" ColumnName="c_customer_city" />
+          <ScalarProperty Name="c_customer_state" ColumnName="c_customer_state" />
+          <ScalarProperty Name="c_parent_id" ColumnName="c_parent_id" />
+          <ScalarProperty Name="IsShipRecord" ColumnName="IsShipRecord" />
+          <ScalarProperty Name="c_customer_zipcode" ColumnName="c_customer_zipcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_delivery_methods">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_delivery_methods">
+        <MappingFragment StoreEntitySet="tbl_delivery_methods">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_delivery_method" ColumnName="c_delivery_method" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_delivery_types">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_delivery_types">
+        <MappingFragment StoreEntitySet="tbl_delivery_types">
+          <ScalarProperty Name="c_delivery_type_id" ColumnName="c_delivery_type_id" />
+          <ScalarProperty Name="delivery_type" ColumnName="delivery_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_density">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_density">
+        <MappingFragment StoreEntitySet="tbl_density">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_species_c_id" ColumnName="c_species_c_id" />
+          <ScalarProperty Name="c_seasoning_c_id" ColumnName="c_seasoning_c_id" />
+          <ScalarProperty Name="c_species_c_code" ColumnName="c_species_c_code" />
+          <ScalarProperty Name="c_seasoning_c_code" ColumnName="c_seasoning_c_code" />
+          <ScalarProperty Name="c_density" ColumnName="c_density" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_finish">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_finish">
+        <MappingFragment StoreEntitySet="tbl_finish">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_finish" ColumnName="c_finish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_finishers">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_finishers">
+        <MappingFragment StoreEntitySet="tbl_finishers">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_finisher_code" ColumnName="c_finisher_code" />
+          <ScalarProperty Name="c_finisher_name" ColumnName="c_finisher_name" />
+          <ScalarProperty Name="c_finisher_address" ColumnName="c_finisher_address" />
+          <ScalarProperty Name="c_finisher_city" ColumnName="c_finisher_city" />
+          <ScalarProperty Name="c_finisher_state" ColumnName="c_finisher_state" />
+          <ScalarProperty Name="c_finisher_zip" ColumnName="c_finisher_zip" />
+          <ScalarProperty Name="c_finisher_contact_name" ColumnName="c_finisher_contact_name" />
+          <ScalarProperty Name="c_finisher_contact_email" ColumnName="c_finisher_contact_email" />
+          <ScalarProperty Name="c_finisher_contact_phone" ColumnName="c_finisher_contact_phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_how_found">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_how_found">
+        <MappingFragment StoreEntitySet="tbl_how_found">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_how_found_describe" ColumnName="c_how_found_describe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_hubspot_comm_log">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_hubspot_comm_log">
+        <MappingFragment StoreEntitySet="tbl_hubspot_comm_log">
+          <ScalarProperty Name="commlog_id" ColumnName="commlog_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="last_contact" ColumnName="last_contact" />
+          <ScalarProperty Name="last_contact_notes" ColumnName="last_contact_notes" />
+          <ScalarProperty Name="next_contact" ColumnName="next_contact" />
+          <ScalarProperty Name="next_contact_notes" ColumnName="next_contact_notes" />
+          <ScalarProperty Name="salesperson_name" ColumnName="salesperson_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_items">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_items">
+        <MappingFragment StoreEntitySet="tbl_items">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_item_name" ColumnName="c_item_name" />
+          <ScalarProperty Name="c_item_concat_name" ColumnName="c_item_concat_name" />
+          <ScalarProperty Name="c_product_id" ColumnName="c_product_id" />
+          <ScalarProperty Name="c_item_product_code" ColumnName="c_item_product_code" />
+          <ScalarProperty Name="c_item_species_code" ColumnName="c_item_species_code" />
+          <ScalarProperty Name="c_item_bl_grade_id" ColumnName="c_item_bl_grade_id" />
+          <ScalarProperty Name="c_item_bl_grade" ColumnName="c_item_bl_grade" />
+          <ScalarProperty Name="c_item_mill_grade" ColumnName="c_item_mill_grade" />
+          <ScalarProperty Name="c_item_pattern_type" ColumnName="c_item_pattern_type" />
+          <ScalarProperty Name="c_item_pattern_profile" ColumnName="c_item_pattern_profile" />
+          <ScalarProperty Name="c_item_seasoning_code" ColumnName="c_item_seasoning_code" />
+          <ScalarProperty Name="c_item_use_id" ColumnName="c_item_use_id" />
+          <ScalarProperty Name="c_item_use_code" ColumnName="c_item_use_code" />
+          <ScalarProperty Name="c_item_surface_id" ColumnName="c_item_surface_id" />
+          <ScalarProperty Name="c_item_surface_code" ColumnName="c_item_surface_code" />
+          <ScalarProperty Name="c_item_nominal_width" ColumnName="c_item_nominal_width" />
+          <ScalarProperty Name="c_item_nominal_thickness" ColumnName="c_item_nominal_thickness" />
+          <ScalarProperty Name="c_item_actual_width" ColumnName="c_item_actual_width" />
+          <ScalarProperty Name="c_item_actual_thickness" ColumnName="c_item_actual_thickness" />
+          <ScalarProperty Name="c_item_exposed_face" ColumnName="c_item_exposed_face" />
+          <ScalarProperty Name="c_item_finish" ColumnName="c_item_finish" />
+          <ScalarProperty Name="c_item_mill_id" ColumnName="c_item_mill_id" />
+          <ScalarProperty Name="c_item_mill_code" ColumnName="c_item_mill_code" />
+          <ScalarProperty Name="c_item_finisher_id" ColumnName="c_item_finisher_id" />
+          <ScalarProperty Name="c_item_finisher_code" ColumnName="c_item_finisher_code" />
+          <ScalarProperty Name="c_item_variance" ColumnName="c_item_variance" />
+          <ScalarProperty Name="c_item_density_id" ColumnName="c_item_density_id" />
+          <ScalarProperty Name="c_item_density" ColumnName="c_item_density" />
+          <ScalarProperty Name="c_item_datetime_created" ColumnName="c_item_datetime_created" />
+          <ScalarProperty Name="c_item_datetime_update" ColumnName="c_item_datetime_update" />
+          <ScalarProperty Name="c_item_custom" ColumnName="c_item_custom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_items_old">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_items_old">
+        <MappingFragment StoreEntitySet="tbl_items_old">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_item_name" ColumnName="c_item_name" />
+          <ScalarProperty Name="c_item_concat_name" ColumnName="c_item_concat_name" />
+          <ScalarProperty Name="c_item_product_id" ColumnName="c_item_product_id" />
+          <ScalarProperty Name="c_item_species_id" ColumnName="c_item_species_id" />
+          <ScalarProperty Name="c_item_bl_grade" ColumnName="c_item_bl_grade" />
+          <ScalarProperty Name="c_item_mill_grade" ColumnName="c_item_mill_grade" />
+          <ScalarProperty Name="c_item_pattern_type" ColumnName="c_item_pattern_type" />
+          <ScalarProperty Name="c_item_pattern_profile" ColumnName="c_item_pattern_profile" />
+          <ScalarProperty Name="c_item_seasoning_id" ColumnName="c_item_seasoning_id" />
+          <ScalarProperty Name="c_item_use_id" ColumnName="c_item_use_id" />
+          <ScalarProperty Name="c_item_surface" ColumnName="c_item_surface" />
+          <ScalarProperty Name="c_item_nominal_width" ColumnName="c_item_nominal_width" />
+          <ScalarProperty Name="c_item_nominal_thickness" ColumnName="c_item_nominal_thickness" />
+          <ScalarProperty Name="c_item_actual_width" ColumnName="c_item_actual_width" />
+          <ScalarProperty Name="c_item_actual_thickness" ColumnName="c_item_actual_thickness" />
+          <ScalarProperty Name="c_item_exposed_face" ColumnName="c_item_exposed_face" />
+          <ScalarProperty Name="c_item_finish" ColumnName="c_item_finish" />
+          <ScalarProperty Name="c_item_mill_id" ColumnName="c_item_mill_id" />
+          <ScalarProperty Name="c_item_finisher_id" ColumnName="c_item_finisher_id" />
+          <ScalarProperty Name="c_item_variance" ColumnName="c_item_variance" />
+          <ScalarProperty Name="c_item_density" ColumnName="c_item_density" />
+          <ScalarProperty Name="c_item_datetime_created" ColumnName="c_item_datetime_created" />
+          <ScalarProperty Name="c_item_datetime_update" ColumnName="c_item_datetime_update" />
+          <ScalarProperty Name="c_item_custom" ColumnName="c_item_custom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_lead_status">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_lead_status">
+        <MappingFragment StoreEntitySet="tbl_lead_status">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_status_description" ColumnName="c_status_description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mill_grades">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_mill_grades">
+        <MappingFragment StoreEntitySet="tbl_mill_grades">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_mill_grade" ColumnName="c_mill_grade" />
+          <ScalarProperty Name="c_bl_grade" ColumnName="c_bl_grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mills">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_mills">
+        <MappingFragment StoreEntitySet="tbl_mills">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_mill_code" ColumnName="c_mill_code" />
+          <ScalarProperty Name="c_qb_mill_id" ColumnName="c_qb_mill_id" />
+          <ScalarProperty Name="c_mill_name" ColumnName="c_mill_name" />
+          <ScalarProperty Name="c_mill_address" ColumnName="c_mill_address" />
+          <ScalarProperty Name="c_mill_city" ColumnName="c_mill_city" />
+          <ScalarProperty Name="c_mill_state" ColumnName="c_mill_state" />
+          <ScalarProperty Name="c_mill_zipcode" ColumnName="c_mill_zipcode" />
+          <ScalarProperty Name="c_contact_name" ColumnName="c_contact_name" />
+          <ScalarProperty Name="c_contact_phone" ColumnName="c_contact_phone" />
+          <ScalarProperty Name="c_contact_email" ColumnName="c_contact_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_products">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_products">
+        <MappingFragment StoreEntitySet="tbl_products">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_product_code" ColumnName="c_product_code" />
+          <ScalarProperty Name="c_product_describe" ColumnName="c_product_describe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_profit_calculator">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_profit_calculator">
+        <MappingFragment StoreEntitySet="tbl_profit_calculator">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_crating_cost" ColumnName="c_crating_cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_project">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_project">
+        <MappingFragment StoreEntitySet="tbl_project">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_project_name" ColumnName="c_project_name" />
+          <ScalarProperty Name="c_salesperson_id" ColumnName="c_salesperson_id" />
+          <ScalarProperty Name="c_customer_email_id_from_hubspot" ColumnName="c_customer_email_id_from_hubspot" />
+          <ScalarProperty Name="c_customer_id" ColumnName="c_customer_id" />
+          <ScalarProperty Name="c__leadstatus_id" ColumnName="c__leadstatus_id" />
+          <ScalarProperty Name="c_project_delivery_address_1" ColumnName="c_project_delivery_address_1" />
+          <ScalarProperty Name="c_project_delivery_address_2" ColumnName="c_project_delivery_address_2" />
+          <ScalarProperty Name="c_project_delivery_city" ColumnName="c_project_delivery_city" />
+          <ScalarProperty Name="c_project_delivery_state" ColumnName="c_project_delivery_state" />
+          <ScalarProperty Name="c_project_delivery_zip" ColumnName="c_project_delivery_zip" />
+          <ScalarProperty Name="c_project_delivery_phone" ColumnName="c_project_delivery_phone" />
+          <ScalarProperty Name="c_start_date" ColumnName="c_start_date" />
+          <ScalarProperty Name="c_deliver_by_date" ColumnName="c_deliver_by_date" />
+          <ScalarProperty Name="c_project_info" ColumnName="c_project_info" />
+          <ScalarProperty Name="c_salesperson_notes" ColumnName="c_salesperson_notes" />
+          <ScalarProperty Name="c_how_found_id" ColumnName="c_how_found_id" />
+          <ScalarProperty Name="c_callback_appt" ColumnName="c_callback_appt" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_project_items">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_project_items">
+        <MappingFragment StoreEntitySet="tbl_project_items">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_item_id" ColumnName="c_item_id" />
+          <ScalarProperty Name="c_project_id" ColumnName="c_project_id" />
+          <ScalarProperty Name="c_square_footage" ColumnName="c_square_footage" />
+          <ScalarProperty Name="c_cost_per_mbft" ColumnName="c_cost_per_mbft" />
+          <ScalarProperty Name="c_linear_footage" ColumnName="c_linear_footage" />
+          <ScalarProperty Name="c_board_footage" ColumnName="c_board_footage" />
+          <ScalarProperty Name="c_price_per_board_feet" ColumnName="c_price_per_board_feet" />
+          <ScalarProperty Name="c_price_per_linear_feet" ColumnName="c_price_per_linear_feet" />
+          <ScalarProperty Name="c_price_per_square_feet" ColumnName="c_price_per_square_feet" />
+          <ScalarProperty Name="c_items_weight" ColumnName="c_items_weight" />
+          <ScalarProperty Name="c_item_total_quoted" ColumnName="c_item_total_quoted" />
+          <ScalarProperty Name="c_item_mill_setup_fee" ColumnName="c_item_mill_setup_fee" />
+          <ScalarProperty Name="c_item_finisher_setup_fee" ColumnName="c_item_finisher_setup_fee" />
+          <ScalarProperty Name="c_item_mill_notes" ColumnName="c_item_mill_notes" />
+          <ScalarProperty Name="c_item_customer_notes" ColumnName="c_item_customer_notes" />
+          <ScalarProperty Name="c_item_tally_notes" ColumnName="c_item_tally_notes" />
+          <ScalarProperty Name="c_tally_type" ColumnName="c_tally_type" />
+          <ScalarProperty Name="c_pattern_image" ColumnName="c_pattern_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_project_status">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_project_status">
+        <MappingFragment StoreEntitySet="tbl_project_status">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="project_status" ColumnName="project_status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_quotes_info">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_quotes_info">
+        <MappingFragment StoreEntitySet="tbl_quotes_info">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_quote_number" ColumnName="c_quote_number" />
+          <ScalarProperty Name="c_project_name" ColumnName="c_project_name" />
+          <ScalarProperty Name="c_customer_id" ColumnName="c_customer_id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="c_salesperson_id" ColumnName="c_salesperson_id" />
+          <ScalarProperty Name="c_quote_datetime_created" ColumnName="c_quote_datetime_created" />
+          <ScalarProperty Name="c_quote_QB_no" ColumnName="c_quote_QB_no" />
+          <ScalarProperty Name="c_quote_PO_no" ColumnName="c_quote_PO_no" />
+          <ScalarProperty Name="c_mill_id" ColumnName="c_mill_id" />
+          <ScalarProperty Name="c_finisher_id" ColumnName="c_finisher_id" />
+          <ScalarProperty Name="c_project_id" ColumnName="c_project_id" />
+          <ScalarProperty Name="c_shipto_id" ColumnName="c_shipto_id" />
+          <ScalarProperty Name="c_cust_quote_datesent" ColumnName="c_cust_quote_datesent" />
+          <ScalarProperty Name="c_cust_quote_dateapproved" ColumnName="c_cust_quote_dateapproved" />
+          <ScalarProperty Name="c_sample_request_date" ColumnName="c_sample_request_date" />
+          <ScalarProperty Name="c_sample_recieved_date" ColumnName="c_sample_recieved_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_salesperson">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_salesperson">
+        <MappingFragment StoreEntitySet="tbl_salesperson">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_salesperson_name" ColumnName="c_salesperson_name" />
+          <ScalarProperty Name="c_salesperson_email" ColumnName="c_salesperson_email" />
+          <ScalarProperty Name="c_salesperson_phone" ColumnName="c_salesperson_phone" />
+          <ScalarProperty Name="c_salesperson_zip" ColumnName="c_salesperson_zip" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_seasoning">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_seasoning">
+        <MappingFragment StoreEntitySet="tbl_seasoning">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_seasoning_code" ColumnName="c_seasoning_code" />
+          <ScalarProperty Name="c_seasoning_describe" ColumnName="c_seasoning_describe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_siding_patterns">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_siding_patterns">
+        <MappingFragment StoreEntitySet="tbl_siding_patterns">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_pattern_type" ColumnName="c_pattern_type" />
+          <ScalarProperty Name="c_pattern_img_description" ColumnName="c_pattern_img_description" />
+          <ScalarProperty Name="c_pattern_image_path" ColumnName="c_pattern_image_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_species">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_species">
+        <MappingFragment StoreEntitySet="tbl_species">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_species_code" ColumnName="c_species_code" />
+          <ScalarProperty Name="c_species_name" ColumnName="c_species_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_surface">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_surface">
+        <MappingFragment StoreEntitySet="tbl_surface">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_item_surface" ColumnName="c_item_surface" />
+          <ScalarProperty Name="c_item_surface_describe" ColumnName="c_item_surface_describe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tally_boardlength">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_tally_boardlength">
+        <MappingFragment StoreEntitySet="tbl_tally_boardlength">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_boardlength" ColumnName="c_boardlength" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tally_detail">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_tally_detail">
+        <MappingFragment StoreEntitySet="tbl_tally_detail">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_tbl_mill_tally_id" ColumnName="c_tbl_mill_tally_id" />
+          <ScalarProperty Name="c_board_length" ColumnName="c_board_length" />
+          <ScalarProperty Name="c_board_count" ColumnName="c_board_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tally_type">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_tally_type">
+        <MappingFragment StoreEntitySet="tbl_tally_type">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_tally_type" ColumnName="c_tally_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transit_data">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_transit_data">
+        <MappingFragment StoreEntitySet="tbl_transit_data">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_project_id" ColumnName="c_project_id" />
+          <ScalarProperty Name="c_transit_co" ColumnName="c_transit_co" />
+          <ScalarProperty Name="c_transit_type_id" ColumnName="c_transit_type_id" />
+          <ScalarProperty Name="c_transit_source" ColumnName="c_transit_source" />
+          <ScalarProperty Name="c_transit_destination" ColumnName="c_transit_destination" />
+          <ScalarProperty Name="c_reciever_customer_id" ColumnName="c_reciever_customer_id" />
+          <ScalarProperty Name="c_delivery_method_id" ColumnName="c_delivery_method_id" />
+          <ScalarProperty Name="c_delivery_type_id" ColumnName="c_delivery_type_id" />
+          <ScalarProperty Name="c_truck_type_id" ColumnName="c_truck_type_id" />
+          <ScalarProperty Name="c_delivered_by" ColumnName="c_delivered_by" />
+          <ScalarProperty Name="c_bft_vol" ColumnName="c_bft_vol" />
+          <ScalarProperty Name="c_miles" ColumnName="c_miles" />
+          <ScalarProperty Name="c_loadweight" ColumnName="c_loadweight" />
+          <ScalarProperty Name="c_padweight" ColumnName="c_padweight" />
+          <ScalarProperty Name="c_rfq_id" ColumnName="c_rfq_id" />
+          <ScalarProperty Name="c_internal_notes" ColumnName="c_internal_notes" />
+          <ScalarProperty Name="c_customer_notes" ColumnName="c_customer_notes" />
+          <ScalarProperty Name="c_mill_notes" ColumnName="c_mill_notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transit_drop_reqs">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_transit_drop_reqs">
+        <MappingFragment StoreEntitySet="tbl_transit_drop_reqs">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_project_id" ColumnName="c_project_id" />
+          <ScalarProperty Name="c_delivery_days" ColumnName="c_delivery_days" />
+          <ScalarProperty Name="c_delivery_hours" ColumnName="c_delivery_hours" />
+          <ScalarProperty Name="c_unload_method" ColumnName="c_unload_method" />
+          <ScalarProperty Name="c_unload_machine" ColumnName="c_unload_machine" />
+          <ScalarProperty Name="c_datetime_restrictions" ColumnName="c_datetime_restrictions" />
+          <ScalarProperty Name="c_machine_wt_size_limits" ColumnName="c_machine_wt_size_limits" />
+          <ScalarProperty Name="c_salesperson_notes" ColumnName="c_salesperson_notes" />
+          <ScalarProperty Name="c_special_arrangements" ColumnName="c_special_arrangements" />
+          <ScalarProperty Name="c_semitruck_access_details" ColumnName="c_semitruck_access_details" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transit_rfq">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_transit_rfq">
+        <MappingFragment StoreEntitySet="tbl_transit_rfq">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_project_name" ColumnName="c_project_name" />
+          <ScalarProperty Name="c_rfq_amount" ColumnName="c_rfq_amount" />
+          <ScalarProperty Name="c_crating_co" ColumnName="c_crating_co" />
+          <ScalarProperty Name="c_transit_co" ColumnName="c_transit_co" />
+          <ScalarProperty Name="c_rfq_date" ColumnName="c_rfq_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_transit_types">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_transit_types">
+        <MappingFragment StoreEntitySet="tbl_transit_types">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_transit_type" ColumnName="c_transit_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_truck_data">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_truck_data">
+        <MappingFragment StoreEntitySet="tbl_truck_data">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="c_truck_type" ColumnName="c_truck_type" />
+          <ScalarProperty Name="c_fbtruck_options" ColumnName="c_fbtruck_options" />
+          <ScalarProperty Name="c_fbtruck_deckspace" ColumnName="c_fbtruck_deckspace" />
+          <ScalarProperty Name="c_fbtruck_units" ColumnName="c_fbtruck_units" />
+          <ScalarProperty Name="c_boxtruck_units" ColumnName="c_boxtruck_units" />
+          <ScalarProperty Name="c_boxtruck_class" ColumnName="c_boxtruck_class" />
+          <ScalarProperty Name="c_crate_width" ColumnName="c_crate_width" />
+          <ScalarProperty Name="c_crate_height" ColumnName="c_crate_height" />
+          <ScalarProperty Name="c_crate_length" ColumnName="c_crate_length" />
+          <ScalarProperty Name="c_crate_weight" ColumnName="c_crate_weight" />
+          <ScalarProperty Name="c_box_option1" ColumnName="c_box_option1" />
+          <ScalarProperty Name="c_box_option2" ColumnName="c_box_option2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_truck_types">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_truck_types">
+        <MappingFragment StoreEntitySet="tbl_truck_types">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_truck_type" ColumnName="c_truck_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_uses">
+      <EntityTypeMapping TypeName="quotemachineModel.tbl_uses">
+        <MappingFragment StoreEntitySet="tbl_uses">
+          <ScalarProperty Name="c_id" ColumnName="c_id" />
+          <ScalarProperty Name="c_use_code" ColumnName="c_use_code" />
+          <ScalarProperty Name="c_use_describe" ColumnName="c_use_describe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="quotemachineModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="email_verified_at" ColumnName="email_verified_at" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="remember_token" ColumnName="remember_token" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

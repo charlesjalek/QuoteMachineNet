@@ -1,0 +1,145 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.master.vb" Inherits="BL.QuoteMachine.MasterPage" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <link href="styles/base.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <telerik:RadScriptManager runat="server"></telerik:RadScriptManager>
+        <div id="wrapper">
+        <telerik:RadPageLayout runat="server" ID="MasterLayout" GridType="Fluid">
+            <Rows>
+                <%--Header--%>
+                <telerik:LayoutRow CssClass="header">
+                    <Columns>
+                        <%--Logo--%>
+                        <telerik:LayoutColumn Span="2" SpanMd="3" SpanSm="12" SpanXs="12">
+                            <a href="#" class="logo">
+                                <img src="images/logo.png" alt="site logo"/>
+                            </a>
+                        </telerik:LayoutColumn>
+
+                        <%--Main Nav--%>
+                        <telerik:LayoutColumn Span="10" SpanMd="9" SpanSm="12" SpanXs="12">
+                        <telerik:RadMenu ID="RadMenu1" CssClass="mainMenu" runat="server" RenderMode="Auto" Font-Size="Large" >
+                            <%--<telerik:RadMenu ID="RadMenu3" CssClass="mainMenu" runat="server" RenderMode="Auto" Skin="Glow"  Font-Size="Large" >--%>
+                    <Items>
+                        <telerik:RadMenuItem Text="Home" NavigateUrl="Default.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="Grid Page" NavigateUrl="Grid.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="ListView Page" NavigateUrl="ListView.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="About" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="Projects" NavigateUrl="ProjectMainForm.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="Project Search" NavigateUrl="ProjSearch.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                         <telerik:RadMenuItem Text="Customers" NavigateUrl="CustomerForm.aspx"/>
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="Items" NavigateUrl="ItemForm.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+                        <telerik:RadMenuItem Text="Mills" NavigateUrl="MillForm.aspx" />
+                        <telerik:RadMenuItem IsSeparator="true" />
+
+                        <telerik:RadMenuItem runat="server" Text="People" >
+                            <Items>
+                                <telerik:RadMenuItem Text="Sales Person" NavigateUrl="SalesPersonForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Contacts" NavigateUrl="ContactForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Users" NavigateUrl="UserForm.aspx" />
+                            </Items>
+                        </telerik:RadMenuItem>
+                        <telerik:RadMenuItem IsSeparator="true" />
+
+                        <telerik:RadMenuItem runat="server" Text="Lookups" >
+                            <Items>
+                                <telerik:RadMenuItem runat="server" Text="Grades" NavigateUrl="/Pages/Domain/GradeForm.aspx"  />
+                                <telerik:RadMenuItem runat="server" Text="Density" NavigateUrl="/Pages/Domain/DensityForm.aspx"/>
+                                <telerik:RadMenuItem runat="server" Text="Finish" NavigateUrl="/Pages/Domain/FinishForm.aspx"  />
+                                <telerik:RadMenuItem runat="server" Text="Finishers" NavigateUrl="/Pages/Domain/FinishersForm.aspx"/>
+                                <telerik:RadMenuItem runat="server" Text="How Found" NavigateUrl="/Pages/Domain/HowFoundForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Lead Status" NavigateUrl="/Pages/Domain/LeadStatusForm.aspx"/>
+                                <telerik:RadMenuItem runat="server" Text="Grades" NavigateUrl="/Pages/Domain/GradeForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Mills" NavigateUrl="/Pages/Domain/MillForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Product" NavigateUrl="/Pages/Domain/ProductForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Project Status" NavigateUrl="/Pages/Domain/ProjectStatusForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Seasoning" NavigateUrl="/Pages/Domain/SeasoningForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Siding Patterns" NavigateUrl="/Pages/Domain/SidingPatternForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Species" NavigateUrl="/Pages/Domain/SpecieForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Surface" NavigateUrl="/Pages/Domain/SurfaceForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Board Length" NavigateUrl="/Pages/Domain/BoardLengthForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Tally Types" NavigateUrl="/Pages/Domain/TallyTypeForm.aspx" />
+                                <telerik:RadMenuItem runat="server" Text="Uses" NavigateUrl="/Pages/Domain/UseForm.aspx" />
+                                
+                            </Items>
+                        </telerik:RadMenuItem>
+
+                        <telerik:RadMenuItem IsSeparator="true" />
+                       
+                    </Items>
+                </telerik:RadMenu>
+                        </telerik:LayoutColumn>
+                    </Columns>
+                </telerik:LayoutRow>
+
+                <%--Main--%>
+                <telerik:LayoutRow>
+                    <Columns>
+                        <%--Sidebar--%>
+                        <telerik:LayoutColumn Span="2" HiddenMd="true" HiddenSm="true" HiddenXs="true">
+                            <telerik:RadMenu ID="RadMenu2" CssClass="sidebar" Flow="Vertical" runat="server" >
+                                <Items>
+                                    <telerik:RadMenuItem Text="Menu item 1" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 2" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 3" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 4" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 5" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 6" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 7" />
+                                    <telerik:RadMenuItem IsSeparator="true" />
+                                    <telerik:RadMenuItem Text="Menu item 8" />
+                                </Items>
+                            </telerik:RadMenu>
+                        </telerik:LayoutColumn>
+
+                        <%--Content--%>
+                        <telerik:CompositeLayoutColumn Span="10" SpanMd="12" SpanSm="12" SpanXs="12">
+                            <Content>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </Content>
+                        </telerik:CompositeLayoutColumn>
+                    </Columns>
+                </telerik:LayoutRow>
+
+                <%--Footer--%>
+                <telerik:LayoutRow>
+                    <Columns>
+                        <telerik:LayoutColumn CssClass="footer">
+                            <hr />
+                            Footer: © 2002-2015 Company Inc, 201 Jones Rd, Waltham, MA 03451
+                        </telerik:LayoutColumn>
+                    </Columns>
+                </telerik:LayoutRow>
+            </Rows>
+        </telerik:RadPageLayout>
+       </div>
+    </form>
+</body>
+</html>
