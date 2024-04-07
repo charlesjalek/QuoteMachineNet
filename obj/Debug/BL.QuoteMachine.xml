@@ -505,6 +505,78 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:BL.QuoteMachine.FinishForm._RadStyleSheetManager1">
+<summary>
+RadStyleSheetManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._RadSkinManager1">
+<summary>
+RadSkinManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._divMsgs">
+<summary>
+divMsgs control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._Label1">
+<summary>
+Label1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._Label2">
+<summary>
+Label2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._RadAjaxManager1">
+<summary>
+RadAjaxManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._RadAjaxLoadingPanel1">
+<summary>
+RadAjaxLoadingPanel1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._RadFormDecorator1">
+<summary>
+RadFormDecorator1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:BL.QuoteMachine.FinishForm._RadGrid1">
 <summary>
 RadGrid1 control.
@@ -514,9 +586,18 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:BL.QuoteMachine.FinishForm._EntityDataSource1">
+<member name="F:BL.QuoteMachine.FinishForm._SqlDataSource1">
 <summary>
-EntityDataSource1 control.
+SqlDataSource1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.FinishForm._RadCodeBlock1">
+<summary>
+RadCodeBlock1 control.
 </summary>
 <remarks>
 Auto-generated field.
@@ -532,6 +613,69 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
+<member name="F:BL.QuoteMachine.GradeForm._RadSkinManager1">
+<summary>
+RadSkinManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._divMsgs">
+<summary>
+divMsgs control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._Label1">
+<summary>
+Label1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._Label2">
+<summary>
+Label2 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._RadAjaxManager1">
+<summary>
+RadAjaxManager1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._RadAjaxLoadingPanel1">
+<summary>
+RadAjaxLoadingPanel1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._RadFormDecorator1">
+<summary>
+RadFormDecorator1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
 <member name="F:BL.QuoteMachine.GradeForm._RadGrid1">
 <summary>
 RadGrid1 control.
@@ -541,9 +685,18 @@ Auto-generated field.
 To modify move field declaration from designer file to code-behind file.
 </remarks>
 </member>
-<member name="F:BL.QuoteMachine.GradeForm._EntityDataSource1">
+<member name="F:BL.QuoteMachine.GradeForm._SqlDataSource1">
 <summary>
-EntityDataSource1 control.
+SqlDataSource1 control.
+</summary>
+<remarks>
+Auto-generated field.
+To modify move field declaration from designer file to code-behind file.
+</remarks>
+</member>
+<member name="F:BL.QuoteMachine.GradeForm._RadCodeBlock1">
+<summary>
+RadCodeBlock1 control.
 </summary>
 <remarks>
 Auto-generated field.

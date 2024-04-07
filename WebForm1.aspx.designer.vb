@@ -95,13 +95,112 @@ Partial Public Class WebForm1
     Protected WithEvents RadFormDecorator1 As Global.Telerik.Web.UI.RadFormDecorator
 
     '''<summary>
-    '''RadGrid1 control.
+    '''RadTabStrip1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RadGrid1 As Global.Telerik.Web.UI.RadGrid
+    Protected WithEvents RadTabStrip1 As Global.Telerik.Web.UI.RadTabStrip
+
+    '''<summary>
+    '''RadMultiPage1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadMultiPage1 As Global.Telerik.Web.UI.RadMultiPage
+
+    '''<summary>
+    '''RadPageView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadPageView1 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''RadTabStrip2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadTabStrip2 As Global.Telerik.Web.UI.RadTabStrip
+
+    '''<summary>
+    '''RadMultiPage2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadMultiPage2 As Global.Telerik.Web.UI.RadMultiPage
+
+    '''<summary>
+    '''PageView1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PageView1 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''PageView2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PageView2 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''PageView3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PageView3 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''PageView4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PageView4 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''RadPageView2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadPageView2 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''RadPageView3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadPageView3 As Global.Telerik.Web.UI.RadPageView
+
+    '''<summary>
+    '''RadRating control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RadRating As Global.Telerik.Web.UI.RadRating
 
     '''<summary>
     '''SqlDataSource1 control.

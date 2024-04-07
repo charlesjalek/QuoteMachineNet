@@ -189,12 +189,14 @@
     <Content Include="Pages\Domain\FinishersForm.aspx" />
     <Content Include="Pages\Domain\FinishForm.aspx" />
     <Content Include="Pages\Domain\GradeForm.aspx" />
+    <Content Include="Pages\Trans\ProjectForm.aspx" />
     <Content Include="scripts\scripts.js" />
     <Content Include="styles\base.css" />
     <Content Include="styles\default.css" />
     <Content Include="styles\grid.css" />
     <Content Include="styles\listView.css" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Article.vb" />
@@ -280,11 +282,25 @@
       <DependentUpon>GradeForm.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\Trans\ProjectForm.aspx.designer.vb">
+      <DependentUpon>ProjectForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Trans\ProjectForm.aspx.vb">
+      <DependentUpon>ProjectForm.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="WebForm1.aspx.designer.vb">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.vb">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.vb">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.vb">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -307,6 +323,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\QuoteMachine20240317140046 - Web Deploy.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -323,7 +340,6 @@
   <ItemGroup>
     <Folder Include="BusLogic\" />
     <Folder Include="Objects\" />
-    <Folder Include="Pages\Trans\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -363,7 +379,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
